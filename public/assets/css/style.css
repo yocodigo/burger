@@ -1,3 +1,11 @@
+body, .jumbotron {
+  background-image: linear-gradient(120deg, #f6d365 0%, #fda085 100%) !important;
+}
+
+.create-update-form {
+  background-image: linear-gradient(120deg, #f6d365 0%, #fda085 100%) !important;
+}
+
 li {
     padding: 5px;
     margin: 5px;
@@ -17,4 +25,17 @@ li {
   .form-group {
     margin-bottom: 5px;
   }
-  
+
+  .col-md-10, img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 15%;
+  }
+
+  .create-update-form, .label, li, h1, h2, .form-group, body {
+    text-align: center;
+    margin: auto;
+    width: 100%;
+    padding: 10px;
+}
