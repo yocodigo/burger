@@ -33,7 +33,18 @@ li {
     width: 15%;
   }
 
-  .create-update-form, .label, li, h1, h2, .form-group, body {
+  /* .list-group-item {
+    margin-left: 50%;
+  } */
+
+  .create-update-form {
+    text-align: center;
+    margin: auto;
+    width: 30%;
+    padding: 10px;
+  }
+
+  .label, li, h1, h2, .form-group, body {
     text-align: center;
     margin: auto;
     width: 100%;
