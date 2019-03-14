@@ -1,7 +1,6 @@
 // Set up MySQL connection.
-const mysql = require("mysql");
-
-const connection = mysql.createConnection({
+const mysql = require("mysql"),
+ connection = mysql.createConnection({
   port: 3306,
   host: "localhost",
   user: "root",
@@ -9,7 +8,7 @@ const connection = mysql.createConnection({
   database: "burger_db"
 });
 
-// Make connection.
+// Connect to db
 connection.connect(function(err) {
   if (err) {
     console.error("error connecting: " + err.stack);

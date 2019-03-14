@@ -1,31 +1,14 @@
 <div class="jumbotron">
-		<h1 class="display-4">Burgers!</h1>
-		<img src="/assets/images/burger.jpg">
+	<img src="/assets/images/burgers.png">
+	<h1 class="display-4">Burgers!</h1>
 </div>
-
-<h2>Enter a Burger You Want to Eat!</h2>
-
-{{!-- <ul> --}}
-  {{!-- {{#each burgers}} --}}
-    {{!-- {{#unless devour}} --}}
-      {{!-- {{> burgers/burger devour=true}} --}}
-    {{!-- {{/unless}} --}}
-  {{!-- {{/each}} --}}
-{{!-- </ul> --}}
-
-{{!-- <ul> --}}
-  {{!-- {{#each burgers}} --}}
-    {{!-- {{#if devour}} --}}
-      {{!-- {{> burgers/burger-block devour=false}} --}}
-    {{!-- {{/if}} --}}
-  {{!-- {{/each}} --}}
-{{!-- </ul> --}}
-
-<div class="row">
-		<div class="col-md-4 col-md-offset-1">
+<div class="container">
+	<h2>Create Your Burger!</h2>
+	<div class="row">
+		<div class="col-md-6 col-md-offset-1">
 			<div class="panel-panel default">
 				<ul class="list-group">
-				{{#each burgers}}
+					{{#each burgers}}
 					{{#unless this.devoured}}
 					<li class="list-group-item">
 						<div class="input-group">
@@ -33,40 +16,38 @@
 							<span class="input-group-btn">
 								<form action="burgers/update/{{this.id}}?_method=PUT" method="POST">
 									<input type="hidden" name="devoured" value="true">
-									<button class="btn btn-default btn-lg" type="submit"> Devour IT! </button>
+									<button class="btn btn-default btn-lg" id="dvrbtn" type="submit"> Devour IT! </button>
 								</form>
 							</span>
 						</div>
 					</li>
 					{{/unless}}
-				{{/each}}
-			</ul>
-		</div>
-	</div>
-
-	<div class="row">
-		<div class="col-md-4 col-md-offset-2">
-			<div class="panel panel-default">
-				<ul class="list-group">
-				{{#each burgers}}
-					{{#if this.devoured}}
-					<li class="list-group-item">
-						<p class="lead">{{this.burger_name}}</p>
-					</li>
-					{{/if}}
-				{{/each}}
+					{{/each}}
 				</ul>
 			</div>
+		</div>		
+			<div class="col-md-4 col-md-offset-1">
+				<div class="panel panel-default">
+					<ul class="list-group">
+						{{#each burgers}}
+						{{#if this.devoured}}
+						<li class="list-group-item">
+							<p class="lead">{{this.burger_name}}</p>
+						</li>
+						{{/if}}
+						{{/each}}
+					</ul>
+				</div>
+			</div>
+	</div>		
+	<div class="row">	
+		<div class="col-md-10">
+			<form class="create-update-form" action="burgers/create" method="POST">
+				<div class="form-group">
+					<textarea class="form-control input-lg" type="text" name="burger_value" rows="3"> </textarea>
+				</div>
+				<button class="btn btn-default btn-lg" type="submit">Submit</button>
+			</form>
 		</div>
 	</div>
-
-<div class="col-md-10">
-		<form class="create-update-form" action="burgers/create" method="POST">
-
-			<div class="form-group">
-				<textarea class="form-control input-lg" type="text" name="burger_value" rows="3"> </textarea>
-			</div>
-
-			<button class="btn btn-default btn-lg" type="submit">Submit</button>
-		</form>
 </div>

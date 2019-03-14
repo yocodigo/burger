@@ -4,7 +4,7 @@ const express = require("express"),
 console.log("The controller is running");
 
 // Create all our routes and set up logic within those routes where required.
-router.get("/", function(req, res) {  
+router.get("/", function(req, res) {
   burger.all(function(data) {
     const hbsObject = {
       burgers: data
@@ -30,5 +30,5 @@ router.put("/burgers/update/:id", function(req, res) {
   });
 });
 
-// Export routes for server.js to use.
+// Export routes for index.js to use.
 module.exports = router;
