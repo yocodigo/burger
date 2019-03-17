@@ -3,15 +3,17 @@
 	<h1 class="display-4">Burgers!</h1>
 </div>
 <div class="container">
-	<h2>Create Your Burger!</h2>
+	<h2>Add your burgers order to the list then...DEVOUR THEM!</h2>
+	<h3 id="burger-list">Burger List </h3>
+	<h3 id="devour-list">Devoured List</h3>
 	<div class="row">
-		<div class="col-md-6 col-md-offset-1">
+		<div class="col-md-6 col-md-offset-1">			
 			<div class="panel-panel default">
 				<ul class="list-group">
 					{{#each burgers}}
 					{{#unless this.devoured}}
 					<li class="list-group-item">
-						<div class="input-group">
+						<div class="input-group">							
 							<p class="lead"> {{this.burger_name}}</p>
 							<span class="input-group-btn">
 								<form action="burgers/update/{{this.id}}?_method=PUT" method="POST">
@@ -42,12 +44,15 @@
 	</div>		
 	<div class="row">	
 		<div class="col-md-10">
-			<form class="create-update-form" action="burgers/create" method="POST">
+			<form class="create-update-form" action="/burgers/create" method="POST">
 				<div class="form-group">
-					<textarea class="form-control input-lg" type="text" name="burger_value" rows="3"> </textarea>
+					<textarea class="form-control input-lg" type="text" name="burger_name" value="" id="enter_text" rows="3"> </textarea>
 				</div>
 				<button class="btn btn-default btn-lg" type="submit">Submit</button>
 			</form>
+			{{!-- <input type="text" class="form-control" name="burger_name" value="" id="enter_text">
+				<button type="submit" class="btn btn-primary" id="text-enter-button">Submit</button> --}}
 		</div>
 	</div>
 </div>
+

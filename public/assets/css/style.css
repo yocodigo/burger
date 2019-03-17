@@ -1,6 +1,9 @@
 body {
   padding: 0px !important;
-  background: #e7e4df;
+  background: #4B79A1;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #283E51, #4B79A1);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #283E51, #4B79A1); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
 }
 .jumbotron {
   position: relative;
@@ -9,17 +12,19 @@ body {
 }
 h1 {
   position: absolute;
-  color: #fff;
   top: 8px;
-}
+} 
 h1, h2 {
+  color: #fff;
   font: italic small-caps bold 2em cursive;
+} 
+h2 {
+  position: relative;
 }
 li {
   padding: 5px;
   margin: 5px;
 }
-
 .label {
   font-weight: bold;
 }
@@ -39,8 +44,8 @@ img {
   height: 660px;
 }
 .create-update-form, li {
-  background: rgb(255,255,255);
-  background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(242,206,137,1) 6%, rgba(248,195,93,1) 50%, rgba(242,206,137,1) 94%, rgba(255,255,255,1) 100%);
+  background: linear-gradient(to bottom, rgba(255,255,255,0.15) 0%, rgba(0,0,0,0.15) 100%), radial-gradient(at top center, rgba(255,255,255,0.40) 0%, rgba(0,0,0,0.40) 120%) #989898; 
+  background-blend-mode: multiply,multiply;
   font: italic small-caps bold 16px/2 cursive;
 }
 .create-update-form {
@@ -71,7 +76,23 @@ p {
 #dvrbtn {
   position: absolute;
   right: 20px;
+  background: #9596a7;
 }
-button:hover {
+#dvrbtn:hover {
   background: #ea7d4b;
+}
+.container {
+  background: #0000;
+  position: relative;
+}
+#burger-list {
+  position: absolute;
+  left: 30px;
+}
+#devour-list {
+  position: relative;
+  right: 10px;
+}
+#burger-list, #devour-list {
+  color: #ffffff;
 }

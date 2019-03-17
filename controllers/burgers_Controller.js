@@ -3,30 +3,29 @@ const express = require("express"),
        router = express.Router();
 console.log("The controller is running");
 
-// Create all our routes and set up logic within those routes where required.
 router.get("/", function(req, res) {
+  res.redirect("/burgers");
+});
+
+// Create all our routes and set up logic within those routes where required.
+router.get("/burgers", function(req, res) {
   burger.all(function(data) {
-    const hbsObject = {
-      burgers: data
-    };
-    res.render("index", hbsObject);
+    res.render("index", { burger_data: data});
   });
 });
 
 router.post("/burgers/create", function(req, res) {
-  burger.create(["burger_name"], [req.body.burger_value], function(data) {
+  burger.create(req.body.burger_name, function(data) {
+    console.log(data);
     res.redirect("/");
   });
 });
 
-router.put("/burgers/update/:id", function(req, res) {
-  console.log("I just tried to devour a burger");
-  console.log(req.body.devoured);
-  const condition = "id = " + req.params.id;
-
-  burger.update({ devoured: req.body.devoured }, condition, function(data) {
-    res.redirect("/");
-    console.log("I just redirected from the devour route");
+router.put("/burgers/:id", function(req, res) {
+  burger.update(req.params.id, function(data) {
+    // res.redirect("/");
+    console.log(data);
+    res.sendStatus(200);
   });
 });
 
