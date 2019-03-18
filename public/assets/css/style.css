@@ -30,7 +30,7 @@ li {
 }
 .create-update-form {
   padding: 5px;
-  margin: 5px;
+  margin-left: 194px !important;
 }
 .form-group {
   margin-bottom: 5px;
@@ -76,18 +76,19 @@ p {
 #dvrbtn {
   position: absolute;
   right: 20px;
+  bottom: 10px;
   background: #9596a7;
 }
-#dvrbtn:hover {
-  background: #ea7d4b;
+.btn:hover {
+  background: #ea7d4b !important;
 }
 .container {
   background: #0000;
   position: relative;
+  margin-left: 285px;
 }
 #burger-list {
-  position: absolute;
-  left: 30px;
+  position: relative;
 }
 #devour-list {
   position: relative;

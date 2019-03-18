@@ -2,26 +2,22 @@
 	<img src="/assets/images/burgers.png">
 	<h1 class="display-4">Burgers!</h1>
 </div>
+<h2>Add your burgers order to the list then...DEVOUR THEM!</h2>	
 <div class="container">
-	<h2>Add your burgers order to the list then...DEVOUR THEM!</h2>
-	<h3 id="burger-list">Burger List </h3>
-	<h3 id="devour-list">Devoured List</h3>
 	<div class="row">
-		<div class="col-md-6 col-md-offset-1">			
+		<div class="col-md-6 col-md-offset-1" id="burger-list-col">
+			<h3 id="burger-list">Burger List</h3>			
 			<div class="panel-panel default">
 				<ul class="list-group">
-					{{#each burgers}}
+					{{#each burger_data}}
 					{{#unless this.devoured}}
 					<li class="list-group-item">
 						<div class="input-group">							
 							<p class="lead"> {{this.burger_name}}</p>
-							<span class="input-group-btn">
-								{{!-- <form action="burgers/{{this.id}}?_method=PUT" method="POST"> --}}
-								<form class="devour-form button-size">
-									{{!-- <input type="hidden" name="devoured" value="true">
-									<button class="btn btn-default btn-lg" id="dvrbtn" type="submit"> Devour IT! </button> --}}
+							<span class="input-group-btn">								
+								<form class="devour-form button-size">									
 									<input input type="hidden" class="burger_id" type="text" value={{this.id}}><br>
-									<button type="submit" class="btn btn-default">Devour it!</button>
+									<button type="submit" class="btn btn-default" id="dvrbtn">Devour it!</button>
 								</form>
 							</span>
 						</div>
@@ -31,10 +27,11 @@
 				</ul>
 			</div>
 		</div>		
-			<div class="col-md-4 col-md-offset-1">
+			<div class="col-md-4 col-md-offset-1">				
+				<h3 id="devour-list">Devoured List</h3>
 				<div class="panel panel-default">
 					<ul class="list-group">
-						{{#each burgers}}
+						{{#each burger_data}}
 						{{#if this.devoured}}
 						<li class="list-group-item">
 							<p class="lead">{{this.burger_name}}</p>
@@ -53,8 +50,6 @@
 				</div>
 				<button class="btn btn-default btn-lg" type="submit">Submit</button>
 			</form>
-			{{!-- <input type="text" class="form-control" name="burger_name" value="" id="enter_text">
-				<button type="submit" class="btn btn-primary" id="text-enter-button">Submit</button> --}}
 		</div>
 	</div>
 </div>
